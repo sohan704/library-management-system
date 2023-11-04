@@ -27,7 +27,7 @@ const Home = () => {
     <div>
       <Navbar></Navbar>
       <div>
-        <div className="hero min-h-screen bg-green-50">
+        <div className="hero min-h-screen">
           <div className="hero-content flex-col lg:flex-row">
             <img src="https://i.ibb.co/FwSyXts/bookshelf.png" className="max-w-sm rounded-lg" />
             <div>
@@ -43,7 +43,7 @@ const Home = () => {
 
     
 
-      <div className="bg-green-50">
+      <div className="">
 
       <div className="py-10 text-center font-semibold">
           <p className="text-green-500 text-6xl"><span className="text-red-500">EX</span>PLORE 🎁</p>

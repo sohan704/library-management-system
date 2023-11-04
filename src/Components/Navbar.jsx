@@ -1,5 +1,8 @@
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-
+import changeTheme from "../DarkMode/Toggle";
+import { AuthContext } from "../Provider/AuthProvider";
+// import AuthContext from "../Provider/AuthProvider"
 const Navbar = () => {
 
   const allLinks = <>
@@ -7,8 +10,25 @@ const Navbar = () => {
     <li className="text-lg"><NavLink to="/addbook">Add Book</NavLink></li>
     <li className="text-lg"><NavLink to="/allbooks">All Books</NavLink></li>
     <li className="text-lg"><NavLink to="/borrowedbooks">Borrowed Books</NavLink></li>
-  
+
   </>
+
+  const [theme, setTheme] = useState('🌙');
+  const handleChange = () => {
+    console.log('Handle change clicked!');
+    changeTheme();
+    if (theme === '🌙') {
+      setTheme('🌞');
+    } else {
+      setTheme('🌙');
+    }
+  }
+
+  const { user,logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut().then().catch();
+  }
 
   return (
     <div className="navbar bg-base-100">
@@ -29,7 +49,39 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-      <Link className="btn btn-accent" to="/login">Login</Link>
+        {
+
+          <div>
+            {
+
+              (user) && <img className="h-full md:h-[60px] w-full lg:w-9/12 rounded-full object-cover mx-2"
+                src={(user) ? user.photoURL : ''} alt="" />
+
+            }
+          </div>
+        }
+
+        {
+
+          <div>
+            {
+              <p className="mx-3 font-md text-sm md:text-lg">{(user) ? user.displayName : ''}</p>
+            }
+          </div>
+        }
+
+        {
+
+          <div>
+            {
+              (user) ? <a onClick={handleLogOut} className="btn btn-sm lg:btn-md">LogOut</a> :
+                <Link className="btn btn-sm lg:btn-md" to="/login">Login</Link>
+
+            }
+          </div>
+        }
+
+        <a onClick={handleChange} className="btn text-sm btn-gray btn-circle p-1 m-2">{theme}</a>
       </div>
     </div>
   );

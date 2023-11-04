@@ -111,7 +111,7 @@ const Register = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <div className="hero min-h-screen bg-green-50">
+      <div className="hero min-h-screen">
         <div className="hero-content flex-col">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl text-green-600 font-bold">Register</h1>
