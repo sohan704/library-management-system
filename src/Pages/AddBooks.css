@@ -1,0 +1,24 @@
+              .rating {
+                display: inline-block;
+              }
+
+              .rating input {
+                display: none;
+              }
+
+              .rating label {
+                font-size: 25px;
+                cursor: pointer;
+                color: #ccc;
+                float: right;
+              }
+
+              .rating label:before {
+                content: '\2605'; /* Unicode character for a star */
+              }
+
+              .rating input:checked ~ label {
+                color: #ffcc00;
+              }
+   
+       

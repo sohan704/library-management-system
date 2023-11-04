@@ -7,7 +7,7 @@ import AllBooks from "../Pages/AllBooks";
 import BorrowedBooks from "../Pages/BorrowedBooks";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
-
+import PrivateRoute from "./PrivateRoute";
 
   const routes = createBrowserRouter([
     {
@@ -23,19 +23,19 @@ import Register from "../Pages/Register";
         
         {
           path: '/addbook',
-          element: <AddBooks></AddBooks>,
+          element: <PrivateRoute><AddBooks></AddBooks></PrivateRoute>,
           
         },
         
         {
           path: '/allbooks',
-          element: <AllBooks></AllBooks>,
+          element: <PrivateRoute><AllBooks></AllBooks></PrivateRoute>,
           loader: () => fetch('/Brands.json'),
         },
         
         {
           path: '/borrowedbooks',
-          element: <BorrowedBooks></BorrowedBooks>,
+          element: <PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute>,
           loader: () => fetch('/Brands.json'),
         },
         {
