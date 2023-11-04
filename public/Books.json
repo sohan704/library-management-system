@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "Category": "thriller",
+    "image": "https://i.ibb.co/8gJghhV/thriller.jpg"
+  },
+  {
+    "id": 2,
+    "Category": "history",
+    "image": "https://i.ibb.co/hgzsHTq/histoyr.png"
+  },
+  {
+    "id": 3,
+    "Category": "scifi",
+    "image": "https://i.ibb.co/2S8Mf9C/scifi.jpg"
+  },
+  {
+    "id": 4,
+    "Category": "fantasy",
+    "image": "https://i.ibb.co/6Z9syWJ/fantasy.jpg"
+  }
+]
