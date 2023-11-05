@@ -1,5 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 const HomeCard = ({ card }) => {
   const { Category, image } = card;
+  const navigate = useNavigate();
+
+  const handleCategory = () => {
+     navigate(`/book/${Category}`);
+  }
+
   return (
     <div>
       <div className="card w-11/12 bg-base-100 border-2 border-green-200 shadow-sm">
@@ -12,7 +20,7 @@ const HomeCard = ({ card }) => {
           <h2 className="card-title text-4xl">{Category.toUpperCase()}</h2>
 
           <div className="card-actions">
-            <button className="btn btn-accent">MORE</button>
+            <button onClick={handleCategory} className="btn btn-accent">MORE</button>
           </div>
         </div>
       </div>

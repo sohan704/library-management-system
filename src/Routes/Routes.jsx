@@ -8,6 +8,8 @@ import BorrowedBooks from "../Pages/BorrowedBooks";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import PrivateRoute from "./PrivateRoute";
+import BookCategoryRoot from "../Root/BookCategoryRoot";
+import CategoryDetails from "../Pages/CategoryDetails";
 
   const routes = createBrowserRouter([
     {
@@ -54,6 +56,17 @@ import PrivateRoute from "./PrivateRoute";
   
       ]
   
+    },
+    {
+      path:'/book/:category',
+      element:<BookCategoryRoot></BookCategoryRoot>,
+      children: [
+        {
+          path:'',
+          element: <CategoryDetails></CategoryDetails>,
+          loader: ({params}) => fetch(`http://localhost:5000/book/${params.category}`)
+        }
+      ]
     }
   ])
 

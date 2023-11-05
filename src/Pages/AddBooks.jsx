@@ -21,7 +21,7 @@ const AddBooks = () => {
     const form = e.target;
     const image = form.image.value;
     const name = form.name.value;
-    // const brand = form.brand.value.replace(/\s/g, '').toLowerCase();
+    
     
     const quantity = form.quantity.value;
     const author = form.author.value; 
