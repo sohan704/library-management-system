@@ -39,7 +39,7 @@ import Singlebook from "../Pages/Singlebook";
         {
           path: '/borrowedbooks',
           element: <PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute>,
-          loader: () => fetch('/Brands.json'),
+          // loader: () => fetch(`http://localhost:5000/borrowed`),
         },
         {
           path: '/login',

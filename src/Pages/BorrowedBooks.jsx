@@ -1,6 +1,17 @@
+import axios from "axios";
 import Navbar from "../Components/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const BorrowedBooks = () => {
+   const {user } = useContext(AuthContext);
+   
+   
+  axios.get(`http://localhost:5000/borrowed?email=${user?.email}`)
+  .then(res => console.log(res.data));
+
+
+
   return (
     <div>
       <Navbar></Navbar>
