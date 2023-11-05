@@ -10,7 +10,7 @@ const Home = () => {
     x++;
     console.log(x);
     if (x % 5 === 0) {
-      swal("What? 😒", "Why are you pressing it again and again?");
+      swal("Stop! 🚨", "Why are you pressing it again and again?");
     }
   }
 
@@ -31,7 +31,7 @@ const Home = () => {
           <div className="hero-content flex-col lg:flex-row">
             <img src="https://i.ibb.co/FwSyXts/bookshelf.png" className="max-w-sm rounded-lg" />
             <div>
-              <h1 className="font-bold"><a className="normal-case font-bold text-2xl md:text-7xl text-green-600"><span className="text-red-500">OG</span>Library <span onClick={handleClick}>😊</span> </a> </h1>
+              <h1 className="font-bold"><a className="normal-case font-bold text-2xl md:text-7xl text-green-600"><span className="text-red-500">OG</span>Library <span onClick={handleClick}>📕</span> </a> </h1>
               <p className="py-6 text-2xl md:text-4xl">
                 is a non-profit library of millions of Free books!</p>
               <button className="btn btn-accent">EXPLORE</button>

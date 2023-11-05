@@ -14,7 +14,7 @@ const AddBooks = () => {
   };
 
 
-  const handleAddProduct = (e) => {
+  const handleAddBook = (e) => {
     e.preventDefault();
 
     const form = e.target;
@@ -23,11 +23,11 @@ const AddBooks = () => {
     // const brand = form.brand.value.replace(/\s/g, '').toLowerCase();
     
     const quantity = form.quantity.value;
-   
+    const author = form.author.value; 
     const description = form.description.value;
-    const type = form.type.value;
+    
 
-    const newProduct = { image, name,  rating: selectedRating, quantity, description, type };
+    const newProduct = { image, name, author,  rating: selectedRating, quantity, description};
     console.log(newProduct);
 
 
@@ -50,15 +50,15 @@ const AddBooks = () => {
     <div>
       <Navbar></Navbar>
 
-      <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col">
+      <div className="hero min-h-screen ">
+        <div className="hero-content flex-col ">
 
 
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Add Book</h1>
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form onSubmit={handleAddProduct} className="card-body">
+          <div className="card border-2 border-gray-400 flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <form onSubmit={handleAddBook} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Image</span>
@@ -78,6 +78,15 @@ const AddBooks = () => {
                   <span className="label-text">Quantity</span>
                 </label>
                 <input type="number" name="quantity" placeholder="quantity" className="input input-bordered" required />
+
+              </div>
+                  
+               
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Author Name</span>
+                </label>
+                <input type="text" name="author" placeholder="Author Name" className="input input-bordered" required />
 
               </div>
 
@@ -140,20 +149,9 @@ const AddBooks = () => {
 
 
 
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Type</span>
-                </label>
-                <select className="input input-bordered" name="type">
-                  <option value="Film">Film</option>
-                  <option value="Drama">Drama</option>
-                  <option value="Series">Series</option>
-                  <option value="Song">Song</option>
-                </select>
-
-              </div>
+           
               <div className="form-control mt-6">
-                <button className="btn text-2xl btn-neutral">ADD</button>
+                <button className="btn text-2xl btn-accent">ADD</button>
               </div>
             </form>
           </div>
