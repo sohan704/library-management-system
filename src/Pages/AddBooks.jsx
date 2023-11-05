@@ -3,6 +3,7 @@
 
 import React, { useState } from "react";
 import Navbar from "../Components/Navbar";
+import axios from "axios";
 
 
 const AddBooks = () => {
@@ -25,10 +26,13 @@ const AddBooks = () => {
     const quantity = form.quantity.value;
     const author = form.author.value; 
     const description = form.description.value;
+    const category = form.category.value;
     
 
-    const newProduct = { image, name, author,  rating: selectedRating, quantity, description};
+    const newProduct = { image, name, author, rating: selectedRating, quantity, description, category };
     console.log(newProduct);
+
+    axios.post('http://localhost:5000/book',newProduct).then(res => console.log('The response is ',res.data));
 
 
     //   fetch('https://brand-shop-server-eb5wt3ngh-sohan704.vercel.app/product',{
@@ -97,7 +101,7 @@ const AddBooks = () => {
                 </label>
                 {/* <input type="text" name="brand" placeholder="Brand Name" className="input input-bordered" required /> */}
 
-                <select className="input input-bordered" name="brand">
+                <select className="input input-bordered" name="category">
                   <option value="thriller">Thriller</option>
                   <option value="history">History</option>
                   <option value="scifi">Sci-fi</option>
