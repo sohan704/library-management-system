@@ -1,12 +1,17 @@
 import { useLoaderData } from "react-router-dom";
 import Navbar from "../Components/Navbar";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
 
 const Singlebook = () => {
   const { user } = useContext(AuthContext);
   const data = useLoaderData();
+  
+  const [canBorrow, setCanBorrow] = useState(true);
+  const [myList, setMyList] = useState(null);
+
+
   console.log(data);
 
   const { _id, image, author, category, rating, quantity, name, description } = data;
@@ -26,10 +31,41 @@ const Singlebook = () => {
   }
 
   const reducedQuantity = quantity - 1;
+  
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/borrowed?email=${user?.email}`);
+        setMyList(response.data);
+        
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+
+   
+
+  }, [user]);
+
+  console.log('My list', myList);
+  const found = myList && myList?.find(book => book.id === _id);
+        console.log(found);
+        console.log(myList);
+
+ 
 
 
   const handleBorrow = (e) => {
     e.preventDefault();
+    
+    if(found){
+      document.getElementById('buttonB').click();
+      return;
+    }
+
     const form = e.target;
     const id = _id;
     const name = form.name.value;
