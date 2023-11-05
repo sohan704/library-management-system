@@ -33,7 +33,7 @@ import Singlebook from "../Pages/Singlebook";
         {
           path: '/allbooks',
           element: <PrivateRoute><AllBooks></AllBooks></PrivateRoute>,
-          loader: () => fetch('/Brands.json'),
+          // loader: () => fetch('/Brands.json'),
         },
         
         {

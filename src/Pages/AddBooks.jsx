@@ -4,6 +4,7 @@
 import React, { useState } from "react";
 import Navbar from "../Components/Navbar";
 import axios from "axios";
+import swal from "sweetalert";
 
 
 const AddBooks = () => {
@@ -32,7 +33,10 @@ const AddBooks = () => {
     const newProduct = { image, name, author, rating: selectedRating, quantity, description, category };
     console.log(newProduct);
 
-    axios.post('http://localhost:5000/book',newProduct).then(res => console.log('The response is ',res.data));
+    axios.post('http://localhost:5000/book',newProduct).then(res => {
+      console.log('The response is ',res.data);
+      swal("Book Added!", "Good Job!", "success");
+    });
 
 
     //   fetch('https://brand-shop-server-eb5wt3ngh-sohan704.vercel.app/product',{
