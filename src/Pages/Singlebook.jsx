@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import Navbar from "../Components/Navbar";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
 
@@ -10,7 +10,16 @@ const Singlebook = () => {
   console.log(data);
 
   const { _id, image, author, category, rating, quantity, name, description } = data;
+  
+  const theName = name;
 
+  let isDisabled = "";
+
+//  const [isDisabled, setIsDisabled] = useState('');
+
+  if(quantity < 1){
+     isDisabled = 'btn-disabled';
+  }
 
   const handleModalInfo = () => {
     console.log('Modal is clicked');
@@ -33,7 +42,7 @@ const Singlebook = () => {
     const formattedDate = `${year}-${month}-${day}`;
     const quantity = reducedQuantity;
 
-    const book = { borrowedDate: formattedDate, image, category, id, name, email, returnDate, quantity};
+    const book = { borrowedDate: formattedDate, bookName: theName, image, category, id, name, email, returnDate, quantity};
     console.log(book);
     axios.patch('http://localhost:5000/book',book)
       .then(response => console.log(response.data))
@@ -62,7 +71,7 @@ const Singlebook = () => {
             {/* <button className="btn btn-error">Borrow</button> */}
 
             {/* Open the modal using document.getElementById('ID').showModal() method */}
-            <button className="btn btn-error" onClick={() => document.getElementById('my_modal_5').showModal()}>Borrow</button>
+            <button className={`btn ${isDisabled} btn-error`} onClick={() => document.getElementById('my_modal_5').showModal()}>Borrow</button>
             <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
               <div className="modal-box">
 

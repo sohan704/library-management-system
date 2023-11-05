@@ -1,21 +1,27 @@
 import axios from "axios";
 import Navbar from "../Components/Navbar";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import BorrowedCard from "../Components/BorrowedCard";
 
 const BorrowedBooks = () => {
    const {user } = useContext(AuthContext);
    
+   const [myBooks, setMyBooks] = useState(null);
    
   axios.get(`http://localhost:5000/borrowed?email=${user?.email}`)
-  .then(res => console.log(res.data));
+  .then(res => setMyBooks(res.data));
 
 
 
   return (
     <div>
       <Navbar></Navbar>
-      .. .. B O R R O W E D .. .. 1 1 \ B O O K S .. .. -- 
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {
+          myBooks?.map(book => <BorrowedCard key={book._id} book={book}></BorrowedCard>)
+        }
+      </div>
     </div>
   );
 };
