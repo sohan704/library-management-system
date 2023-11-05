@@ -10,6 +10,7 @@ import Register from "../Pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import BookCategoryRoot from "../Root/BookCategoryRoot";
 import CategoryDetails from "../Pages/CategoryDetails";
+import Singlebook from "../Pages/Singlebook";
 
   const routes = createBrowserRouter([
     {
@@ -65,7 +66,12 @@ import CategoryDetails from "../Pages/CategoryDetails";
           path:'',
           element: <CategoryDetails></CategoryDetails>,
           loader: ({params}) => fetch(`http://localhost:5000/book/${params.category}`)
-        }
+        },
+        {
+          path: ':id',
+          element: <Singlebook></Singlebook>,
+          loader: ({ params }) => fetch(`http://localhost:5000/book/${params.category}/${params.id}`)
+        },
       ]
     }
   ])

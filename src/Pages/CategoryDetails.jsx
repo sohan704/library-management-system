@@ -15,7 +15,7 @@ const CategoryDetails = () => {
       </div>
        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10">
           {
-            data.map(card => <DetailsCard key={card._id} card={card}></DetailsCard>)
+            data?.map(card => <DetailsCard key={card._id} card={card}></DetailsCard>)
           }
        </div>
     </div>

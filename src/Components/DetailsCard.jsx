@@ -1,14 +1,20 @@
 import Rating from "react-rating";
+import { useNavigate } from "react-router-dom";
 
 
 const DetailsCard = ({ card }) => {
-  const { image, name, author, category, rating } = card;
+  const { _id, image, name, author, category, rating } = card;
   
+  const navigate = useNavigate();
   
   const isDisabled = ""; //use "btn-disabled"
 
+  const handleDetails = () => {
+     navigate(`/book/${category}/${_id}`);
+  }
+
   return (
-    <div className="shadow-lg flex gap-5 rounded-lg">
+    <div className="shadow-lg flex gap-5 rounded-lg p-3 md:p-5 mx-auto">
       <div>
         <img className="w-[110px] md:w-[220px] h-[170px] md:h-[340px] object-cover" src={image} alt="" />
       </div>
@@ -28,7 +34,7 @@ const DetailsCard = ({ card }) => {
         </div>
 
         <div>
-          <button className={`btn ${isDisabled} btn-accent`}>Details</button>
+          <button onClick={handleDetails} className={`btn ${isDisabled} btn-accent`}>Details</button>
         </div>
       </div>
     </div>
