@@ -69,7 +69,7 @@ import Singlebook from "../Pages/Singlebook";
         },
         {
           path: ':id',
-          element: <Singlebook></Singlebook>,
+          element: <PrivateRoute><Singlebook></Singlebook></PrivateRoute>,
           loader: ({ params }) => fetch(`http://localhost:5000/book/${params.category}/${params.id}`)
         },
       ]
