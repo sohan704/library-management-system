@@ -2,6 +2,8 @@
 import { useLoaderData } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import HomeCard from "../Components/HomeCard";
+import Pricing from "../Components/Pricing";
+import HomeApi from "../Components/HomeApi";
 
 const Home = () => {
  
@@ -37,7 +39,7 @@ const Home = () => {
 
       <div className="">
 
-      <div className="py-10 text-center font-semibold">
+      <div className="py-10 text-center">
           <p className="text-green-500 text-6xl"><span className="text-red-500">EX</span>PLORE</p>
        </div>
         <div className="grid gap-4 py-10 md:gap-10 grid-cols-1 md:grid-cols-2 md:w-9/12 mx-auto">
@@ -47,7 +49,8 @@ const Home = () => {
         </div>
       </div>
 
-
+      <Pricing></Pricing>
+      <HomeApi></HomeApi>
     </div>
   );
 };
