@@ -1,16 +1,30 @@
 import axios from "axios";
 
-const BorrowedCard = ({ book, afterDelete }) => {
+const BorrowedCard = ({ book, mainBooks, afterDelete }) => {
   const { borrowedDate, bookName, image, category, _id, id, name, email, returnDate, quantity } = book;
   
-  const newQuantity = quantity + 1;
+  // const newQuantity = quantity + 1;
+
+  const neededBook = mainBooks?.find(book=> book._id === id);
+  console.log(neededBook);
+
+   
+
+ 
+    const {quantity: mainQuantity} = neededBook || {quantity: 0};
+
+    console.log('MAIN QUANTITY', mainQuantity);
+  
+
+
 
   const handleReturn = (_id) => {
     
-    const quantity = newQuantity;
+    const quantity = mainQuantity + 1;
 
     const book = {borrowedDate, bookName, _id, image, category, id, name, email, returnDate, quantity }
-     
+    
+
 
     axios.patch('http://localhost:5000/book',book)
     .then(response => console.log(response.data))

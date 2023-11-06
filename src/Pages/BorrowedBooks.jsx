@@ -9,6 +9,8 @@ const BorrowedBooks = () => {
 
   const [myBooks, setMyBooks] = useState(null);
 
+  const [mainBooks, setMainBooks] = useState(null);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -18,11 +20,25 @@ const BorrowedBooks = () => {
         console.error("Error fetching data:", error);
       }
     };
+    const fetchMainData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/book`);
+        setMainBooks(response.data);
 
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+
+
+    
+    fetchMainData();
     fetchData();
   }, [user]);
 
   console.log(myBooks);
+  console.log(mainBooks);
    
   const afterDelete = (id) => {
     const newBooks = myBooks.filter(book => book.id !== id);
@@ -34,7 +50,7 @@ const BorrowedBooks = () => {
       <Navbar></Navbar>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {
-          myBooks?.map(book => <BorrowedCard key={book._id} afterDelete={afterDelete} book={book}></BorrowedCard>)
+          myBooks?.map(book => <BorrowedCard key={book._id} mainBooks={mainBooks} afterDelete={afterDelete} book={book}></BorrowedCard>)
         }
       </div>
     </div>

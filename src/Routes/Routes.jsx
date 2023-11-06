@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 import BookCategoryRoot from "../Root/BookCategoryRoot";
 import CategoryDetails from "../Pages/CategoryDetails";
 import Singlebook from "../Pages/Singlebook";
+import Update from "../Pages/Update";
 
   const routes = createBrowserRouter([
     {
@@ -21,7 +22,7 @@ import Singlebook from "../Pages/Singlebook";
         {
           path: '/',
           element: <Home></Home>,
-          loader: () => fetch('/Books.json'),
+          loader: () => fetch('http://localhost:5000/category'),
         },
         
         {
@@ -51,6 +52,12 @@ import Singlebook from "../Pages/Singlebook";
           element: <Register></Register> ,
           
         },
+        {
+          path: '/update/:id',
+          element: <PrivateRoute><Update></Update></PrivateRoute> ,
+          loader: ({params}) => fetch(`http://localhost:5000/getBook/${params.id}`),
+          
+        }
         
        
        

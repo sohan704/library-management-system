@@ -38,18 +38,6 @@ const AddBooks = () => {
       swal("Book Added!", "Good Job!", "success");
     });
 
-
-    //   fetch('https://brand-shop-server-eb5wt3ngh-sohan704.vercel.app/product',{
-    //     method:'POST',
-    //     headers: {
-    //       'content-type' : 'application/json'
-    //      },
-    //     body: JSON.stringify(newProduct)
-    // }).then(res => res.json()).then(data => {
-    //   console.log(data);
-    //   swal("Product Added!", "Good Job!", "success");
-    // });
-
   }
 
 

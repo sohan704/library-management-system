@@ -3,6 +3,7 @@ import Navbar from "../Components/Navbar";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
+import swal from "sweetalert";
 
 const Singlebook = () => {
   const { user } = useContext(AuthContext);
@@ -62,6 +63,7 @@ const Singlebook = () => {
     e.preventDefault();
     
     if(found){
+      swal("You have borrowed already!", "Sorry!", "error");
       document.getElementById('buttonB').click();
       return;
     }
@@ -69,7 +71,7 @@ const Singlebook = () => {
     const form = e.target;
     const id = _id;
     const name = form.name.value;
-    const email = form.email.value;
+    const email = user?.email;
     const returnDate = form.date.value;
     const currentDate = new Date();
     const year = currentDate.getFullYear();
@@ -87,7 +89,10 @@ const Singlebook = () => {
 
 
     axios.post('http://localhost:5000/borrowed',book)
-      .then(response => console.log(response.data))
+      .then(response => {
+        console.log(response.data);
+        swal("Happy Reading!", "Book Borrowed!", "success");
+      })
       .catch(error => console.error(error));
   }
 

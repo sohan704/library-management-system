@@ -1,7 +1,15 @@
 import Rating from "react-rating";
+import { useNavigate } from "react-router-dom";
 
 const OneBook = ({ book }) => {
-  const { image, author, category, name, rating } = book;
+  const {_id, image, author, category, name, rating } = book;
+   const navigate = useNavigate();
+
+  const handleUpdate = ()=> {
+    console.log('Here is the update!', _id, name);
+    navigate(`/update/${_id}`);
+  }
+
   return (
     <div>
       <div className="flex gap-2 items-center justify-center">
@@ -24,7 +32,7 @@ const OneBook = ({ book }) => {
           </div>
 
           <div>
-            <button className="btn btn-success">Update</button>
+            <button onClick={handleUpdate} className="btn btn-success">Update</button>
           </div>
         </div>
       </div>
