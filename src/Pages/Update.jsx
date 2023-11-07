@@ -27,7 +27,7 @@ const Update = () => {
     const newBook = { image, name, author, rating: selectedRating, category };
     console.log(newBook);
 
-    axios.put(`http://localhost:5000/bookUpdate/${_id}`,newBook).then(res => {
+    axios.put(`http://localhost:5000/bookUpdate/${_id}`,newBook,{withCredentials:true}).then(res => {
       console.log('The response is ',res.data);
       swal("Book updated!", "Good Job!", "success");
     });

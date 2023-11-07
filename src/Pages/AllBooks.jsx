@@ -11,8 +11,10 @@ const AllBooks = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/book`);
-        setMyList(response.data);
+        axios.get(`http://localhost:5000/book`,{withCredentials:true}).then(response => {
+          setMyList(response.data);
+        })
+        
 
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -30,8 +32,8 @@ const AllBooks = () => {
   const handleFilter = () => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/filter`);
-        setMyList(response.data);
+        axios.get(`http://localhost:5000/filter`,{withCredentials:true}).then(response=>setMyList(response.data));
+        
 
       } catch (error) {
         console.error("Error fetching data:", error);

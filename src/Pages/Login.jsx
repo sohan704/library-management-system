@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FaGoogle } from "react-icons/fa";
 import Navbar from "../Components/Navbar";
 import { AuthContext } from "../Provider/AuthProvider";
+import axios from "axios";
 
 const Login = () => {
 
@@ -32,7 +33,15 @@ const Login = () => {
           progress: undefined,
           theme: "light",
         });
+      
+        // const user = result.user;
+        // console.log(user);
+        //access token hit from here
+        const user = {email};
+        console.log(user);
 
+        axios.post('http://localhost:5000/jwt',user, {withCredentials: true})
+        .then(res => console.log(res.data));
         
       }
       )
@@ -65,6 +74,13 @@ const Login = () => {
         progress: undefined,
         theme: "light",
       });
+
+      const email = result.user.email;
+      const user = {email};
+      // console.log('here is the user obj',user);
+      axios.post('http://localhost:5000/jwt',user, {withCredentials: true})
+      .then(res => console.log(res.data));
+
     }).catch();
   }
 

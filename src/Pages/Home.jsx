@@ -4,6 +4,8 @@ import Navbar from "../Components/Navbar";
 import HomeCard from "../Components/HomeCard";
 import Pricing from "../Components/Pricing";
 import HomeApi from "../Components/HomeApi";
+import MobileDevices from "../Components/MobileDevices";
+// import Footer from "../Components/Footer";
 
 const Home = () => {
  
@@ -51,6 +53,8 @@ const Home = () => {
 
       <Pricing></Pricing>
       <HomeApi></HomeApi>
+      <MobileDevices></MobileDevices>
+      
     </div>
   );
 };

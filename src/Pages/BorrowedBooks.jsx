@@ -14,16 +14,17 @@ const BorrowedBooks = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/borrowed?email=${user?.email}`);
-        setMyBooks(response.data);
+        axios.get(`http://localhost:5000/borrowed?email=${user?.email}`,{withCredentials:true})
+        .then(response => setMyBooks(response.data));
+        
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
     const fetchMainData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/book`);
-        setMainBooks(response.data);
+        axios.get(`http://localhost:5000/book`,{withCredentials:true}).then(response => setMainBooks(response.data));
+        
 
       } catch (error) {
         console.error("Error fetching data:", error);

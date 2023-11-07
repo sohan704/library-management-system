@@ -26,11 +26,11 @@ const BorrowedCard = ({ book, mainBooks, afterDelete }) => {
     
 
 
-    axios.patch('http://localhost:5000/book',book)
+    axios.patch('http://localhost:5000/book',book,{withCredentials:true})
     .then(response => console.log(response.data))
     .catch(error => console.error(error));
   
-    axios.delete(`http://localhost:5000/borrowed/${_id}`)
+    axios.delete(`http://localhost:5000/borrowed/${_id}`,{withCredentials:true})
     .then(response=> {
       console.log(response.data)
       afterDelete(id);
