@@ -11,7 +11,7 @@ const AllBooks = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        axios.get(`http://localhost:5000/book`,{withCredentials:true}).then(response => {
+        axios.get(`https://library-server-iota.vercel.app/book`,{withCredentials:true}).then(response => {
           setMyList(response.data);
         })
         
@@ -32,7 +32,7 @@ const AllBooks = () => {
   const handleFilter = () => {
     const fetchData = async () => {
       try {
-        axios.get(`http://localhost:5000/filter`,{withCredentials:true}).then(response=>setMyList(response.data));
+        axios.get(`https://library-server-iota.vercel.app/filter`,{withCredentials:true}).then(response=>setMyList(response.data));
         
 
       } catch (error) {

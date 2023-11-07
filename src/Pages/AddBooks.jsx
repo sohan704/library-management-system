@@ -33,7 +33,7 @@ const AddBooks = () => {
     const newProduct = { image, name, author, rating: selectedRating, quantity, description, category };
     console.log(newProduct);
 
-    axios.post('http://localhost:5000/book',newProduct, {withCredentials:true}).then(res => {
+    axios.post('https://library-server-iota.vercel.app/book',newProduct, {withCredentials:true}).then(res => {
       console.log('The response is ',res.data);
       swal("Book Added!", "Good Job!", "success");
     }).catch(err => {console.log(err);

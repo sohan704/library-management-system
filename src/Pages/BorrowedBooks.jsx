@@ -14,7 +14,7 @@ const BorrowedBooks = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        axios.get(`http://localhost:5000/borrowed?email=${user?.email}`,{withCredentials:true})
+        axios.get(`https://library-server-iota.vercel.app/borrowed?email=${user?.email}`,{withCredentials:true})
         .then(response => setMyBooks(response.data));
         
       } catch (error) {
@@ -23,7 +23,7 @@ const BorrowedBooks = () => {
     };
     const fetchMainData = async () => {
       try {
-        axios.get(`http://localhost:5000/book`,{withCredentials:true}).then(response => setMainBooks(response.data));
+        axios.get(`https://library-server-iota.vercel.app/book`,{withCredentials:true}).then(response => setMainBooks(response.data));
         
 
       } catch (error) {

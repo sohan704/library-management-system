@@ -40,7 +40,7 @@ const Login = () => {
         const user = {email};
         console.log(user);
 
-        axios.post('http://localhost:5000/jwt',user, {withCredentials: true})
+        axios.post('https://library-server-iota.vercel.app/jwt',user, {withCredentials: true})
         .then(res => console.log(res.data));
         
       }
@@ -78,7 +78,7 @@ const Login = () => {
       const email = result.user.email;
       const user = {email};
       // console.log('here is the user obj',user);
-      axios.post('http://localhost:5000/jwt',user, {withCredentials: true})
+      axios.post('https://library-server-iota.vercel.app/jwt',user, {withCredentials: true})
       .then(res => console.log(res.data));
 
     }).catch();

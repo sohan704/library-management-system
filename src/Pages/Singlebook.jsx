@@ -37,7 +37,7 @@ const Singlebook = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/borrowed?email=${user?.email}`,{withCredentials:true});
+        const response = await axios.get(`https://library-server-iota.vercel.app/borrowed?email=${user?.email}`,{withCredentials:true});
         setMyList(response.data);
         
       } catch (error) {
@@ -82,13 +82,13 @@ const Singlebook = () => {
 
     const book = { borrowedDate: formattedDate, bookName: theName, image, category, id, name, email, returnDate, quantity};
     console.log(book);
-    axios.patch('http://localhost:5000/book',book,{withCredentials:true})
+    axios.patch('https://library-server-iota.vercel.app/book',book,{withCredentials:true})
       .then(response => console.log(response.data))
       .catch(error => console.error(error));
     document.getElementById('buttonB').click();
 
 
-    axios.post('http://localhost:5000/borrowed',book,{withCredentials:true})
+    axios.post('https://library-server-iota.vercel.app/borrowed',book,{withCredentials:true})
       .then(response => {
         console.log(response.data);
         swal("Happy Reading!", "Book Borrowed!", "success");

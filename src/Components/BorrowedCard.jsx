@@ -27,7 +27,7 @@ const BorrowedCard = ({ book, mainBooks, afterDelete }) => {
     
 
 
-    axios.patch('http://localhost:5000/book',book,{withCredentials:true})
+    axios.patch('https://library-server-iota.vercel.app/book',book,{withCredentials:true})
     .then(response => {
       console.log(response.data);
       swal("Book Returned!", "Thanks for reading!", "success");
@@ -38,7 +38,7 @@ const BorrowedCard = ({ book, mainBooks, afterDelete }) => {
       swal("Sorry!", "something went wrong!", "error");
     });
   
-    axios.delete(`http://localhost:5000/borrowed/${_id}`,{withCredentials:true})
+    axios.delete(`https://library-server-iota.vercel.app/borrowed/${_id}`,{withCredentials:true})
     .then(response=> {
       console.log(response.data)
       afterDelete(id);

@@ -23,7 +23,7 @@ import Read from "../Pages/Read";
         {
           path: '/',
           element: <Home></Home>,
-          loader: () => fetch('http://localhost:5000/category'),
+          loader: () => fetch('https://library-server-iota.vercel.app/category'),
         },
         
         {
@@ -41,7 +41,7 @@ import Read from "../Pages/Read";
         {
           path: '/borrowedbooks',
           element: <PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute>,
-          // loader: () => fetch(`http://localhost:5000/borrowed`),
+          // loader: () => fetch(`https://library-server-iota.vercel.app/borrowed`),
         },
         {
           path: '/login',
@@ -56,13 +56,13 @@ import Read from "../Pages/Read";
         {
           path: '/update/:id',
           element: <PrivateRoute><Update></Update></PrivateRoute> ,
-          loader: ({params}) => fetch(`http://localhost:5000/getBook/${params.id}`),
+          loader: ({params}) => fetch(`https://library-server-iota.vercel.app/getBook/${params.id}`),
           
         },
         {
           path: '/read/:id',
           element: <PrivateRoute><Read></Read></PrivateRoute> ,
-          loader: ({params}) => fetch(`http://localhost:5000/getBook/${params.id}`),
+          loader: ({params}) => fetch(`https://library-server-iota.vercel.app/getBook/${params.id}`),
           
         },
         
@@ -80,12 +80,12 @@ import Read from "../Pages/Read";
         {
           path:'',
           element: <CategoryDetails></CategoryDetails>,
-          loader: ({params}) => fetch(`http://localhost:5000/book/${params.category}`)
+          loader: ({params}) => fetch(`https://library-server-iota.vercel.app/book/${params.category}`)
         },
         {
           path: ':id',
           element: <PrivateRoute><Singlebook></Singlebook></PrivateRoute>,
-          loader: ({ params }) => fetch(`http://localhost:5000/book/${params.category}/${params.id}`)
+          loader: ({ params }) => fetch(`https://library-server-iota.vercel.app/book/${params.category}/${params.id}`)
         },
       ]
     }
