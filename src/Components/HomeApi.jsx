@@ -1,11 +1,11 @@
 const HomeApi = () => {
   return (
     <div className="my-20">
-      <div className="text-center text-5xl my-20">
+      <div className="text-center text-3xl md:text-5xl my-20">
         GET OUR FREE API
       </div>
-      <div className="text-2xl">
-        <p>Our Book API is totally <span className="text-2xl font-semibold">FREE</span> and trusted by <span className="text-2xl font-semibold">MILLIONS!</span></p>
+      <div className="text-xl md:text-2xl">
+        <p>Our Book API is totally <span className="text-xl md:text-2xl font-semibold">FREE</span> and trusted by <span className="text-2xl font-semibold">MILLIONS!</span></p>
 
         <div>
           <div className="mt-10 mb-5">

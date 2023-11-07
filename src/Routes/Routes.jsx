@@ -12,6 +12,7 @@ import BookCategoryRoot from "../Root/BookCategoryRoot";
 import CategoryDetails from "../Pages/CategoryDetails";
 import Singlebook from "../Pages/Singlebook";
 import Update from "../Pages/Update";
+import Read from "../Pages/Read";
 
   const routes = createBrowserRouter([
     {
@@ -57,7 +58,14 @@ import Update from "../Pages/Update";
           element: <PrivateRoute><Update></Update></PrivateRoute> ,
           loader: ({params}) => fetch(`http://localhost:5000/getBook/${params.id}`),
           
-        }
+        },
+        {
+          path: '/read/:id',
+          element: <PrivateRoute><Read></Read></PrivateRoute> ,
+          loader: ({params}) => fetch(`http://localhost:5000/getBook/${params.id}`),
+          
+        },
+        
         
        
        

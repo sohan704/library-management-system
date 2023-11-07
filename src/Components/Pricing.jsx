@@ -2,15 +2,15 @@ import { FaCheck } from "react-icons/fa";
 
 const Pricing = () => {
   return (
-    <div className="border-2 border-gray-100 rounded-xl my-10">
+    <div className="border-2 border-gray-50 rounded-xl my-10">
       
-      <div className="text-5xl text-center my-20 text-red-500">
+      <div className="text-4xl md:text-5xl text-center my-20 text-red-500">
          <span className="text-green-500">Pricing</span> Options
       </div>
 
       <div className="main-div grid gap-2 grid-cols-1 md:grid-cols-3 ">
         <div className="card bg-base-100 border-gray-50 border-2 hover:shadow-xl">
-          <figure><img className="w-[200px] h-[200px] object-cover" src='https://i.ibb.co/qBRBH9B/shield.png' alt="Shoes" /></figure>
+          <figure><img className="w-[150px] md:w-[200px] h-[150px] md:h-[200px] object-cover" src='https://i.ibb.co/qBRBH9B/shield.png' alt="Shoes" /></figure>
           <div className="card-body">
             <h2 className="card-title">
               Golden
@@ -36,15 +36,15 @@ const Pricing = () => {
             </div>
             <div className="card-actions mt-5 justify-between">
               <div className="flex gap-2 items-center font-bold">
-                <p className="line-through text-red-600 text-xl">$400.00</p>
-                <p className="text-3xl text-secondary">$40.99</p>
+                <p className="line-through text-red-600 text-lg md:text-xl">$400.00</p>
+                <p className="text-2xl md:text-3xl text-secondary">$40.99</p>
               </div>
               <button className="btn btn-secondary">Pay Now</button>
             </div>
           </div>
         </div>
         <div className="card bg-base-100 border-gray-50 border-2 hover:shadow-xl">
-          <figure><img className="w-[200px] h-[200px] object-cover" src='https://i.ibb.co/68ZCtcP/emerald.png' alt="Shoes" /></figure>
+          <figure><img className="w-[150px] md:w-[200px] h-[150px] md:h-[200px] object-cover" src='https://i.ibb.co/68ZCtcP/emerald.png' alt="Shoes" /></figure>
           <div className="card-body">
             <h2 className="card-title">
               Diamond
@@ -70,15 +70,15 @@ const Pricing = () => {
             </div>
             <div className="card-actions mt-5 justify-between">
               <div className="flex gap-2 items-center font-bold">
-                <p className="line-through text-red-600 text-xl">$800.00</p>
-                <p className="text-3xl text-primary">$90.99</p>
+                <p className="line-through text-red-600 text-lg md:text-xl">$800.00</p>
+                <p className="text-2xl md:text-3xl text-primary">$90.99</p>
               </div>
               <button className="btn btn-primary">Pay Now</button>
             </div>
           </div>
         </div>
         <div className="card bg-base-100 border-gray-50 border-2 hover:shadow-xl">
-          <figure><img className="w-[200px] h-[200px] object-cover" src='https://i.ibb.co/WcYwgRd/silver-medal.png' alt="Shoes" /></figure>
+          <figure><img className="w-[150px] md:w-[200px] h-[150px] md:h-[200px] object-cover" src='https://i.ibb.co/WcYwgRd/silver-medal.png' alt="Shoes" /></figure>
           <div className="card-body">
             <h2 className="card-title">
               Silver
@@ -104,8 +104,8 @@ const Pricing = () => {
             </div>
             <div className="card-actions mt-5 justify-between">
               <div className="flex gap-2 items-center font-bold">
-                <p className="line-through text-red-600 text-xl">$50.00</p>
-                <p className="text-3xl text-green-600">$9.99</p>
+                <p className="line-through text-red-600 text-lg md:text-xl">$50.00</p>
+                <p className="text-2xl md:text-3xl text-accent">$9.99</p>
               </div>
               <button className="btn btn-success">Pay Now</button>
             </div>

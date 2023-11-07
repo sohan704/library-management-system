@@ -25,7 +25,7 @@ const Home = () => {
       <div>
         <div className="hero min-h-screen">
           <div className="hero-content flex-col lg:flex-row">
-            <img src="https://i.ibb.co/FwSyXts/bookshelf.png" className="max-w-sm rounded-lg" />
+            <img src="https://i.ibb.co/FwSyXts/bookshelf.png" className="w-[200px] md:w-[320px] h-[200px] md:h-[320px] object-cover rounded-lg" />
             <div>
               <h1 className="font-bold"><a className="normal-case font-bold text-2xl md:text-7xl text-green-600"><span className="text-red-500">OG</span>Library</a> </h1>
               <p className="py-6 text-2xl md:text-4xl">
@@ -42,7 +42,7 @@ const Home = () => {
       <div className="">
 
       <div className="py-10 text-center">
-          <p className="text-green-500 text-6xl"><span className="text-red-500">EX</span>PLORE</p>
+          <p className="text-green-500 text-4xl md:text-6xl"><span className="text-red-500">EX</span>PLORE</p>
        </div>
         <div className="grid gap-4 py-10 md:gap-10 grid-cols-1 md:grid-cols-2 md:w-9/12 mx-auto">
           {

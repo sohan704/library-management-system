@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
@@ -11,7 +11,7 @@ const Singlebook = () => {
   
   const [canBorrow, setCanBorrow] = useState(true);
   const [myList, setMyList] = useState(null);
-
+  const navigate = useNavigate();
 
   console.log(data);
 
@@ -97,6 +97,12 @@ const Singlebook = () => {
   }
 
 
+
+  const handleRead = (id) => {
+    console.log(name,id);
+    navigate(`/read/${id}`);
+  }
+
   return (
     <div>
       <Navbar></Navbar>
@@ -108,7 +114,7 @@ const Singlebook = () => {
             <h1 className="text-2xl text-red-600 font-semibold">Only {quantity} left</h1>
             <div className="badge mt-3 badge-md md:badge-lg badge-accent">{category.toUpperCase()}</div>
             <p className="py-6">{description}</p>
-            <button className="btn btn-accent">Read</button>
+            <button onClick={() => {handleRead(_id)}} className="btn btn-accent">Read</button>
             {/* <button className="btn btn-error">Borrow</button> */}
 
             {/* Open the modal using document.getElementById('ID').showModal() method */}
