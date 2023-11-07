@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import changeTheme from "../DarkMode/Toggle";
 import { AuthContext } from "../Provider/AuthProvider";
+// import { FaMoon, FaSun } from "react-icons/fa";
 // import AuthContext from "../Provider/AuthProvider"
 const Navbar = () => {
 
@@ -13,14 +14,16 @@ const Navbar = () => {
 
   </>
 
-  const [theme, setTheme] = useState('🌙');
+  const [theme, setTheme] = useState('Dark');
   const handleChange = () => {
     console.log('Handle change clicked!');
     changeTheme();
-    if (theme === '🌙') {
-      setTheme('🌞');
+    if (theme === 'Dark') {
+      setTheme('Light');
+      
     } else {
-      setTheme('🌙');
+      setTheme('Dark');
+      
     }
   }
 
@@ -81,7 +84,7 @@ const Navbar = () => {
           </div>
         }
 
-        <a onClick={handleChange} className="btn text-sm btn-gray btn-circle p-1 m-2">{theme}</a>
+        <a onClick={handleChange} className="btn text-xs btn-gray btn-circle p-1 m-2">{theme}</a>
       </div>
     </div>
   );
