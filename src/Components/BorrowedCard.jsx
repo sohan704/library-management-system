@@ -1,4 +1,5 @@
 import axios from "axios";
+import swal from "sweetalert";
 
 const BorrowedCard = ({ book, mainBooks, afterDelete }) => {
   const { borrowedDate, bookName, image, category, _id, id, name, email, returnDate, quantity } = book;
@@ -27,8 +28,15 @@ const BorrowedCard = ({ book, mainBooks, afterDelete }) => {
 
 
     axios.patch('http://localhost:5000/book',book,{withCredentials:true})
-    .then(response => console.log(response.data))
-    .catch(error => console.error(error));
+    .then(response => {
+      console.log(response.data);
+      swal("Book Returned!", "Thanks for reading!", "success");
+      
+    })
+    .catch(error => {
+      console.error(error);
+      swal("Sorry!", "something went wrong!", "error");
+    });
   
     axios.delete(`http://localhost:5000/borrowed/${_id}`,{withCredentials:true})
     .then(response=> {

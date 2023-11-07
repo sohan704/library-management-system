@@ -3,58 +3,72 @@ import { createContext } from "react";
 import auth from "../Firebase/firebase.config";
 import { useState } from "react";
 import { useEffect } from "react";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 
 
 
-const AuthProvider = ({children}) => {
-  
+const AuthProvider = ({ children }) => {
+
   const provider = new GoogleAuthProvider();
-  const [user,setUser] = useState('');
-  
-  
+  const [user, setUser] = useState('');
+
+
   const [loading, setLoading] = useState(true);
 
-   
-  const createUser = (email,password) => {
+
+  const createUser = (email, password) => {
     setLoading(true);
-    return createUserWithEmailAndPassword(auth,email,password);
+    return createUserWithEmailAndPassword(auth, email, password);
   }
 
   const googleLogin = () => {
-    return signInWithPopup(auth,provider);
+    return signInWithPopup(auth, provider);
   }
 
-  const signIn = (email,password) => {
+  const signIn = (email, password) => {
     setLoading(true);
-    return signInWithEmailAndPassword(auth,email,password);
+    return signInWithEmailAndPassword(auth, email, password);
   }
 
   const logOut = () => {
     setLoading(true);
-     return signOut(auth);
+    return signOut(auth);
   }
 
-  useEffect(()=>{
-    const observe = onAuthStateChanged(auth,currentUser => {
-     console.log('shifted',currentUser);
-     setUser(currentUser);
-     setLoading(false);
+  useEffect(() => {
+    const observe = onAuthStateChanged(auth, currentUser => {
+      const userEmail = currentUser?.email || user?.email;
+      const loggedUser = { email: userEmail };
+
+
+      setUser(currentUser);
+      setLoading(false);
+
+      if (currentUser) {
+        axios.post('http://localhost:5000/jwt', loggedUser, { withCredentials: true })
+          .then(res => {
+            console.log('token response', res);
+          })
+      } else {
+        axios.post('http://localhost:5000/logout', loggedUser, { withCredentials: true })
+          .then(res => console.log(res));
+      }
     })
     return () => {
       observe();
     }
-  },[])
+  }, [])
 
 
   const authInfo = {
-     createUser,
-     signIn,
-     logOut,
-     user,
-     loading,
-     googleLogin
+    createUser,
+    signIn,
+    logOut,
+    user,
+    loading,
+    googleLogin
   }
 
   return (
