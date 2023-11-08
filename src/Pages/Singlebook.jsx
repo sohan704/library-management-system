@@ -108,7 +108,7 @@ const Singlebook = () => {
       <Navbar></Navbar>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
-          <img src={image} className="max-w-sm rounded-lg shadow-2xl" />
+          <img src={image} className="w-[110px] md:w-[165px] h-[170px] md:h-[255px] object-cover"/>
           <div>
             <h1 className="text-5xl font-bold">{name}</h1>
             <h1 className="text-2xl text-red-600 font-semibold">Only {quantity} left</h1>
