@@ -76,6 +76,7 @@ import Read from "../Pages/Read";
     {
       path:'/book/:category',
       element:<BookCategoryRoot></BookCategoryRoot>,
+      errorElement: <Error></Error>,
       children: [
         {
           path:'',
