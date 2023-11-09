@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import changeTheme from "../DarkMode/Toggle";
 import { AuthContext } from "../Provider/AuthProvider";
+import { FaBook } from "react-icons/fa";
 // import { FaMoon, FaSun } from "react-icons/fa";
 // import AuthContext from "../Provider/AuthProvider"
 const Navbar = () => {
@@ -44,7 +45,8 @@ const Navbar = () => {
             {allLinks}
           </ul>
         </div>
-        <a className="normal-case font-bold text-2xl md:text-4xl text-green-600"><span className="text-red-500">OG</span>Library</a>
+       <span className="text-red-500 text-sm md:text-4xl"> <FaBook></FaBook></span>
+        <a className="normal-case font-bold text-2xl md:text-4xl text-green-600"><span className="text-red-500"> OG</span>Library</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
