@@ -4,7 +4,7 @@ OGLibrary is a MERN stack web app that simulates CRUD operations with JWT.
 
 # Live Link
 
-My website [Click Here](https://library-management-74fff.web.app) 
+My website [Click Here](https://oglibrary-8c213.web.app/) 
 
 ## 1. Cookie Based Authentication
 This website has cookie based authentication system both for google login and email and password based login. When an user logins they get a cookie that is valid for 5 hours. 
